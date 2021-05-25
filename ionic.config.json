@@ -1,0 +1,7 @@
+{
+  "name": "E-TEPI",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

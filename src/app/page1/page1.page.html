@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs"></ion-back-button>
+    </ion-buttons>
+    <ion-title>LUAS ATAP RUMAH</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-list>
+      <ion-radio-group [(ngModel)]="value" (ionChange)="radioselected()" >
+        <ion-list-header color="secondary">
+          <ion-label>PILIH MODEL ATAP RUMAH YANG ANDA INGINKAN</ion-label>
+        </ion-list-header>
+    
+        <ion-item>
+          <ion-label>MODEL PELANA</ion-label>
+          <ion-radio slot="start" value="mp"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>MODEL LAIN</ion-label>
+          <ion-radio slot="start" value="others"></ion-radio>
+        </ion-item>
+    
+      </ion-radio-group>
+    </ion-list>   
+  </ion-card>
+
+  <ion-card *ngIf="showInfo">
+    <ion-item color="warning">
+      <ion-label align ="center">GLOSARIUM</ion-label>
+      <ion-button color="light" fill="outline" slot="end" (click)="goCloseInfo()"><ion-icon name="close"></ion-icon></ion-button>
+    </ion-item>
+    
+    <!-- GLOSARIUM -->
+    <ion-card-content>
+      <ion-row align="center">
+        <ion-col>
+          <div>P = PANJANG ATAP</div>
+        </ion-col>
+        <ion-col>
+          <div>L = LEBAR ATAP</div>
+          <div>RUMUS = P X L / COS(DERAJAT)</div>
+        </ion-col>
+        <ion-col>
+          <div>° = DERAJAT</div>
+        </ion-col>
+      </ion-row>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <!-- MODEL PELANA -->
+  <div *ngIf="a">
+
+    <ion-card>
+      <img src="./assets/img/1.png" />
+      <ion-item color="success">
+        <ion-button color="light" fill="outline" slot="end" (click)="goShowInfo()">INFO</ion-button>
+        <ion-icon name="trending-up-outline" slot="start"></ion-icon>
+        <ion-label>ATAP RUMAH MODEL PELANA</ion-label>
+      </ion-item>
+    </ion-card>
+
+  <!-- INPUT FIXED CASH FLOW -->
+  <ion-card>  
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">P/Meter</ion-label>
+        <ion-input [(ngModel)]="panjang" type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">L/Meter</ion-label>
+        <ion-input [(ngModel)]="lebar" type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Derajat°</ion-label>
+        <ion-input [(ngModel)]="derajat" type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Hasil/Meter<sup>2</sup></ion-label>
+        <ion-input type="number" disabled>{{hasil}}</ion-input>
+      </ion-item>
+    </ion-card-content>
+    <br>
+    
+    <ion-row align="center">
+      <ion-col>
+        <div><ion-button expand="block" fill="outline" (click)="reset()" color="danger" >RESET</ion-button></div>
+      </ion-col>
+      <ion-col>
+        <div><ion-button expand="block" fill="outline" (click)="hitung()" color="success" >HITUNG</ion-button></div>
+      </ion-col>
+    </ion-row>
+    <br>
+
+  </ion-card>  
+  </div>
+
+  <div *ngIf="b">
+    <ion-card>
+      <ion-item color="danger">
+        <ion-label class="ion-text-center">DATA BELUM ADA</ion-label>
+      </ion-item>
+    </ion-card>
+  </div>
+
+</ion-content>

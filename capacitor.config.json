@@ -1,0 +1,14 @@
+{
+  "appId": "etepiapp.atdevaldiakbar.biz.id",
+  "appName": "E-TEPI",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 5000,
+      "showSpinner": true
+    }
+  },
+  "cordova": {}
+}
